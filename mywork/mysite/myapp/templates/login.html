@@ -1,0 +1,66 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+         form{
+         background:rgba(0,0,0,0.5);
+         padding: 20px;
+         }
+         body{
+         background-image: url("{% static "login.jpg"%}");
+         background-size: cover;
+
+         }
+        h1{
+    	display: inline;
+    	color: white;
+    	font-style: italic;
+    	background: rgba(0,0,0,0.5);
+
+    	}
+    	h3{
+    	display: inline;
+    	color: white;
+    	font-style: italic;
+    	background: rgba(0,0,0,0.5);
+    	}
+    	div{
+    	margin: 40px;
+    	color: white;
+    	font-style: bold italic;
+
+
+    </style>
+</head>
+
+<body>
+<h3>{{today}}</h3>
+</br>
+
+   <h1>Instragram Clone</h1>
+</br>
+   <h3>Log In</h3>
+
+   <form method="post">
+        {% csrf_token %}
+
+
+       <div>
+           <label for="email">Email: </label>
+           <input id="email" type="text" name="email" value={{email}}>
+       </div>
+
+       <div>
+           <label for="password">Password: </label>
+           <input id="password" type="password" name="password" value={{password}} >
+       </div>
+           <input type="submit" value="Log In" >
+    </form>
+
+
+
+
+</body>
+</html>

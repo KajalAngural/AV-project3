@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from forms import SignUpForm, LoginForm
-from django.contrib.auth.hashers import make_password, check_password CommentForm
+from django.contrib.auth.hashers import make_password, check_password
 from models import UserModel, SessionToken
 from datetime import timedelta
 from django.utils import timezone
@@ -22,12 +22,12 @@ def signup_view(request):
             # saving data to DB
             user = UserModel(name=name, password=make_password(password), email=email, username=username)
             user.save()
-            return render(request, 'success.html')
+            return render(request, 'feed.html')
             # return redirect('login/')
     else:
         form = SignUpForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})
 
 
 def login_view(request):
